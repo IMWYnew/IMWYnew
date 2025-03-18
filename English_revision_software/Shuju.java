@@ -1,10 +1,10 @@
 package English_revision_software;
 
 public class Shuju {
-    private String[] repertory_word;
-    private String[] now_meaning;
-    private String[] Chinese_reference_library;
-    private int Combo_count;
+    private String[] repertory_word;//英语单词总库
+    private String[] now_meaning;//零时存储
+    private String[] Chinese_reference_library;//英语单词对应的中文翻译
+    private int Combo_count;//计数/连击数
     private int Combo_count_max=1;
     public Shuju() {
     }
@@ -21,6 +21,7 @@ public class Shuju {
     }
 
     public String[] getChinese_reference_library() {
+        //英语单词对应的中文翻译
         Chinese_reference_library = new String[]{"我", "你", "他", "她", "我们", "放句尾的：你", "放句尾的：她",
                 "放句尾的：他", "放句尾的：我们", "放句尾的：我", "说话", "和/与", "和我", "和我说话",
                 "现在", "想要", "你想要现在和我说话", "必须做", "你必须做这件事", "每天",

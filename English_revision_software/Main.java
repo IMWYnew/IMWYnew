@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    //项目发布人一名普通学生，喜欢写一些小程序欢迎提出一些修改意见
+    //新版本修复问题：修复了随机复习功能的一些BUG，问题不大，无大影响
     public static void main(String[] args) {
         Shuju pupil = new Shuju();
         Random r = new Random();
@@ -11,7 +13,9 @@ public class Main {
         while (true) {
             System.out.println("请选择您要使用的功能：1、随机复习；2、顺序复习；3、输出单词库及其翻译");
             Scanner sc = new Scanner(System.in);
+            //这个输入有残留，需要在输入后清理如下所示
             int choice = sc.nextInt();
+            sc.nextLine();
             if (choice == 1) {
                 //随机复习
                 randomReview(pupil, sc, r);
@@ -34,7 +38,7 @@ public class Main {
         if (input.equals("1") || input.equals("指定")) {
             System.out.println("请选择指定次数");
             //应用用户输入更改计数器
-            counter = sc.nextInt();
+            counter = sc.nextInt() + 1;
         }
         System.out.println("选择完毕，开始复习吧！");
         Start_and_introduction(pupil, counter, sc, r, 1);
@@ -71,13 +75,15 @@ public class Main {
         System.out.println("——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——");
         //外层循环用于输出单词库单词
         //i用于控制循环次数，t用于控制单词库单词的索引
+        sc.nextLine();
         for (int i = 0, t = 0; i < counter - 1; i++, t++) {
             //内层循环用于输入用户答案，并判断是否回答正确，输入错误时循环，正确时跳出循环，或输错4时跳出循环
             //检测代号/编号，1为随机，0||其它为顺序
             if (number == 1) {
                 //替换索引-替换单词及翻译
                 //每次循环都会替换为随机的单词及翻译
-                t = r.nextInt(counter);
+                int restrict = Math.min(storage.length, counter);
+                t = r.nextInt(restrict);
             }
             for (int j = 0; true; j++) {
                 System.out.println("第" + (i + 1) + "个单词：");
