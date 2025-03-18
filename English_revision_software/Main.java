@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
     //项目发布人一名普通学生，喜欢写一些小程序欢迎提出一些修改意见
     //新版本修复问题：修复了随机复习功能的一些BUG，问题不大，无大影响
     public static void main(String[] args) {
@@ -75,7 +76,6 @@ public class Main {
         System.out.println("——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——·——");
         //外层循环用于输出单词库单词
         //i用于控制循环次数，t用于控制单词库单词的索引
-        sc.nextLine();
         for (int i = 0, t = 0; i < counter - 1; i++, t++) {
             //内层循环用于输入用户答案，并判断是否回答正确，输入错误时循环，正确时跳出循环，或输错4时跳出循环
             //检测代号/编号，1为随机，0||其它为顺序
